@@ -1,0 +1,130 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ folder }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">{{ folder }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- USUARIOS -->
+  <div *ngIf="isUsuariosSelected">
+
+    <ion-card>
+
+      <ion-card-header>
+        <ion-card-title>USUARIOS</ion-card-title>
+      </ion-card-header>
+
+      <br>
+
+      <ngx-datatable class="datatable" [ngClass]="tablestyle" [rows]="administradores" [columnMode]="'force'" [sortType]="'multi'"
+        [reorderable]="false" [rowClass]="getRowClass" [summaryRow]="true" [summaryPosition]="'bottom'">
+        <ngx-datatable-column name="name"></ngx-datatable-column>
+        <ngx-datatable-column name="email"></ngx-datatable-column>
+        <ngx-datatable-column name="_id" [resizeable]="false">
+          <ng-template ngx-datatable-header-template>
+
+          </ng-template>
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            <ion-icon *ngIf="typeuser == 1" style="zoom:1.5; color:#de6868;" name="remove-circle-outline"
+              (click)="deleteUser(row)">
+            </ion-icon>
+            <ion-label>   </ion-label>
+            <ion-icon *ngIf="typeuser == 1" style="zoom:1.5; color: black;" name="open-outline" (click)="editUser(row)">
+            </ion-icon>
+            <ion-label>   </ion-label>
+            <ion-icon *ngIf="typeuser == 1" style="zoom:1.5; color: blue;" name="refresh-outline"
+              (click)="changeTypeUser(row)">
+            </ion-icon>
+          </ng-template>
+        </ngx-datatable-column>
+      </ngx-datatable>
+
+    </ion-card>
+
+
+  </div>
+
+  <!-- ESPECIALISTAS -->
+  <div *ngIf="isEspecialistasSelected">
+
+    <ion-card>
+
+      <ion-card-header>
+        <ion-card-title>ESPECIALISTAS</ion-card-title>
+      </ion-card-header>
+
+      <br>
+
+      <ngx-datatable class="datatable" [ngClass]="tablestyle" [rows]="especialistas" [columnMode]="'force'" [sortType]="'multi'"
+        [reorderable]="false" [rowClass]="getRowClass" [summaryRow]="true" [summaryPosition]="'bottom'">
+        <ngx-datatable-column name="name"></ngx-datatable-column>
+        <ngx-datatable-column name="email"></ngx-datatable-column>
+        <ngx-datatable-column name="_id" [resizeable]="false">
+          <ng-template ngx-datatable-header-template>
+
+          </ng-template>
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            <ion-icon *ngIf="typeuser == 1" style="zoom:1.5; color:#de6868;" name="remove-circle-outline"
+              (click)="deleteUser(row)">
+            </ion-icon>
+            <ion-label>   </ion-label>
+            <ion-icon style="zoom:1.5; color: black;" name="open-outline" (click)="editUser(row)">
+            </ion-icon>
+            <ion-label>   </ion-label>
+            <ion-icon *ngIf="typeuser == 1" style="zoom:1.5; color: blue;" name="refresh-outline"
+              (click)="changeTypeUser(row)">
+            </ion-icon>
+          </ng-template>
+        </ngx-datatable-column>
+      </ngx-datatable>
+
+    </ion-card>
+
+
+  </div>
+
+  <!-- PACIENTES -->
+  <div *ngIf="isPacientesSelected">
+
+    <ion-card>
+
+      <ion-card-header>
+        <ion-card-title>PACIENTES</ion-card-title>
+      </ion-card-header>
+
+      <br>
+
+      <!-- <ngx-datatable class="datatable" [ngClass]="tablestyle" [rows]="users" [columnMode]="'force'"
+        [sortType]="'multi'" [reorderable]="false" [rowClass]="getRowClass" [summaryRow]="true"
+        [summaryPosition]="'bottom'">
+        <ngx-datatable-column name="name"></ngx-datatable-column>
+        <ngx-datatable-column name="email"></ngx-datatable-column>
+        <ngx-datatable-column name="_id" [resizeable]="false">
+          <ng-template ngx-datatable-header-template>
+
+          </ng-template>
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            <ion-icon style="zoom:1.5; color:#de6868;" name="remove-circle-outline" (click)="deleteUser(row)">
+            </ion-icon>
+            <ion-label>   </ion-label>
+            <ion-icon style="zoom:1.5; color: black;" name="open-outline" (click)="editUser()">
+            </ion-icon>
+          </ng-template>
+        </ngx-datatable-column>
+      </ngx-datatable> -->
+
+    </ion-card>
+
+
+  </div>
+
+</ion-content>

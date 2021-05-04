@@ -1,0 +1,7 @@
+{
+  "name": "optica_app_",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

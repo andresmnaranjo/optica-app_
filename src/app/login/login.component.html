@@ -1,0 +1,43 @@
+<ion-content>
+    <ion-grid>
+        <ion-row justify-content-center>
+
+            <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+                <div>
+                    <a><img class="img" style="width: 70%; text-align: center; display: block; margin: 0 auto;" src="../../assets/logo.png"></a>
+                    <br>
+                    <ion-label class="labels-login">CORREO:</ion-label>
+                    <ion-item>
+                        <ion-input [(ngModel)]="user.email" type="text" placeholder="Email" value="123"></ion-input>
+                    </ion-item>
+                    <br>
+                    <ion-label class="labels-login">CONTRASEÑA:</ion-label>
+                    <ion-item>
+                        <ion-input [(ngModel)]="user.pass" *ngIf="isHiddenPass" type="password" placeholder="Password">
+                        </ion-input>
+                        <ion-input [(ngModel)]="user.pass" *ngIf="!isHiddenPass" type="text" placeholder="Password">
+                        </ion-input>
+                        <ion-button color="primary" (click)="changeHidden()" *ngIf="isHiddenPass">
+                            <ion-icon name="eye" style="zoom:1.8;"></ion-icon>
+                        </ion-button>
+                        <ion-button color="primary" (click)="changeHidden()" *ngIf="!isHiddenPass">
+                            <ion-icon name="eye-off" style="zoom:1.8"></ion-icon>
+                        </ion-button>
+                    </ion-item>
+                </div>
+                <br>
+
+                <ion-button color="primary" size="medium" (click)="submit()" style="width: 48%;">INICIAR SESIÓN</ion-button>
+                <ion-button color="primary" size="medium" (click)="signup()" style="width: 48%;">REGISTRARSE</ion-button>
+
+                <ion-text class="labels">
+                    <h6>
+                        <a style="font-size: 1rem; color: gray;" href="#" target="_blank">Mauricio Naranjo</a><br>
+                        <a style="font-size: 1rem; color: gray;" href="#" target="_blank">Mateo Osorio</a><br>
+                    </h6><br>
+                </ion-text>
+
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
